@@ -1,0 +1,64 @@
+name: Deploy Next.js site to Production
+
+on:
+  push:
+    branches:
+      - release # 触发器设置为release分支
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted # 使用自托管的runner
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8 # 使用最新的 pnpm v8 版本，您可以根据需要调整
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check
+        run: pnpm tsc --noEmit
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Deploy
+        run: |
+          # 这里添加您的部署命令
+          echo "Deploying to production server"
+          # 例如:
+          pm2 stop vote-helper
+          pm2 start pnpm --name "vote-helper" -- start
+
+      - name: Post-deployment tasks
+        run: |
+          echo "Running post-deployment tasks"
+          # 可以添加一些部署后的任务，比如清理缓存、发送通知等
