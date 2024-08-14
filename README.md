@@ -7,18 +7,6 @@
 
 **Team Member:**
 
-| Name                                                | Student ID | Email                             | Roles                |
-|-----------------------------------------------------|------------|-----------------------------------|----------------------|
-| Yang Xu                                             | 1491561    | xuyx12@student.unimelb.edu.au     | Lead Programmer      |
-| Emily Zhang                                         | 1435712    | yuyuzhang1@student.unimelb.edu.au | Project Manager      |
-| Yilin Lyu                                           | 1429919    | yillyu1@student.unimelb.edu.au    | Scrum Mater          |
-| Fuxing Zhao                                         | 1487383    | fuxingz@student.unimelb.edu.au    | Front-end programmer |
-| Aaron Lee                                           | 1432166    | weizhaol2@student.unimelb.edu.au  | Technical Officer    |
-| linsheng Ge                                         | 1454293    | linshengg@student.unimelb.edu.au  | Architecture Lead    |
-| Yuling Mao                                          | 1379392    | yulmao@student.unimelb.edu.au     | Test Officer         |
-| Chang Liu                                           | 1484354    | clliu13@student.unimelb.edu.au    | Front-end programmer |
-| Weijia Kong                                         | 1443467    | konwk@student.unimelb.edu.au      | Back-end programmer  |
-| Jiamin Gu                                           | 1393020    | jgu6@student.unimelb.edu.au       | Back-end programmer  |
 
 | Name        | Student ID | Email                             | Roles                                     |
 |-------------|------------|-----------------------------------|-------------------------------------------|
